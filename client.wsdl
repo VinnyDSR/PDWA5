@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions name="Client"
+    targetNamespace="urn:Client"
+    xmlns:tns="urn:Client"
+    xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"
+    xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+    xmlns="http://schemas.xmlsoap.org/wsdl/">
+
+    <message name="InsertClient">
+        <part name="name" type="xsd:string" />
+        <part name="email" type="xsd:string" />
+        <part name="password" type="xsd:string" />
+        <part name="office" type="xsd:string" />
+        <part name="salary" type="xsd:int" />
+        <part name="CPF" type="xsd:int" />
+        <part name="RG" type="xsd:int" />
+        <part name="assignments" type="xsd:string" />
+        <part name="startDate" type="xsd:date" />
+        <part name="birthDate" type="xsd:date" />
+    </message>
+
+    <message name="ClientResponse">
+        <part name="response" type="xsd:string" />
+    </message>
+
+    <portType name="ClientPort">
+        <operation name="InsertNewClient">
+            <input message="tns:InsertClient" />
+            <output message="tns:ClientResponse" />
+        </operation>
+    </portType>
+
+    <binding name="ClientBinding" type="tns:ClientPort">
+        <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http" />
+        <operation name="InsertNewClient">
+            <soap:operation soapAction="urn:ClientAction" />
+            <input>
+                <soap:body use="encoded" namespace="urn:Client" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+            </input>
+            <output>
+                <soap:body use="encoded" namespace="urn:Client" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+            </output>
+        </operation>
+    </binding>
+
+    <service name="WSDLService">
+        <port name="ClientPort" binding="tns:ClientBinding">
+            <soap:address location="http://localhost/PDWA5/server.php" />
+        </port>
+    </service>
+</definitions>

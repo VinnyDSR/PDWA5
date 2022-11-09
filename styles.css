@@ -1,0 +1,46 @@
+body {
+	background-color: rgb(98, 114, 164);
+	margin: 0;
+	padding: 0;
+}
+
+html {
+	margin: 0;
+}
+
+main {
+	display: flex;
+	justify-content: center;
+	padding: 2em;
+
+}
+
+header {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 2em;
+	background-color: #282a36;
+	color: white;
+}
+
+table {
+	border-radius: 16px 16px 0 0;
+	color: white;
+	font-weight: thin;
+	background-color: #282a36;
+	border-collapse: collapse;
+
+}
+
+
+
+
+td {
+	background-color: rgba(255, 255, 255, .32);
+}
+
+td,
+th {
+	padding: 1em;
+}
