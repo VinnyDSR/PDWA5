@@ -3,7 +3,7 @@
 function greetings($name, $email, $pass, $office, $salary, $CPF, $RG, $assignments, $startDate, $birthDate) {
 	$servername = "localhost";
 	$username = "root";
-	$password = "Sardinha@07";
+	$password = "";
 	$dbname = "PDWA5";
 	// Create connection
 	$conn = mysqli_connect($servername, $username, $password, $dbname);
